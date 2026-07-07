@@ -1,0 +1,230 @@
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 20;
+  transform: translateY(-150%);
+  border-radius: 999px;
+  background: var(--color-white);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-card);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  position: fixed;
+  top: 0.75rem;
+  left: var(--space-page);
+  right: var(--space-page);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  padding: 0.55rem 0.75rem;
+  box-shadow: 0 10px 30px rgba(7, 63, 75, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.brand__mark {
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-lagoon-500), var(--color-turquoise));
+}
+
+.desktop-nav {
+  display: none;
+}
+
+main {
+  overflow: hidden;
+}
+
+.section {
+  position: relative;
+  padding: 4.5rem var(--space-page);
+}
+
+.section--raised {
+  background: linear-gradient(180deg, #ffffff, #f2fbfb);
+}
+
+.section--soft {
+  background: linear-gradient(180deg, var(--color-sand-soft), #ffffff);
+}
+
+.section__head {
+  max-width: 42rem;
+  margin: 0 auto 1.5rem;
+}
+
+.section__head h2 {
+  margin-top: 0.25rem;
+  font-size: clamp(1.75rem, 8vw, 3.3rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.hero {
+  display: grid;
+  min-height: 100svh;
+  align-items: end;
+  padding-top: 7rem;
+  padding-bottom: 6rem;
+  color: var(--color-white);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: var(--color-lagoon-700);
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(7, 63, 75, 0.22), rgba(7, 63, 75, 0.76)),
+    linear-gradient(90deg, rgba(7, 63, 75, 0.42), rgba(7, 63, 75, 0.08));
+}
+
+.hero__content {
+  max-width: 48rem;
+}
+
+.hero h1 {
+  max-width: 11ch;
+  margin-top: 0.4rem;
+  font-size: clamp(3rem, 17vw, 7.2rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.hero__intro {
+  max-width: 34rem;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.mobile-nav {
+  position: fixed;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  z-index: 12;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0.45rem;
+  box-shadow: 0 18px 42px rgba(7, 63, 75, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.mobile-nav a {
+  display: grid;
+  min-height: 3.2rem;
+  place-items: center;
+  gap: 0.15rem;
+  border-radius: 18px;
+  color: var(--color-muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.mobile-nav svg,
+.desktop-nav svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mobile-nav a.is-active {
+  color: var(--color-lagoon-900);
+  background: rgba(82, 221, 207, 0.28);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 820px) {
+  .site-header {
+    top: 1.25rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .desktop-nav a {
+    border-radius: 999px;
+    padding: 0.7rem 0.95rem;
+    color: var(--color-lagoon-900);
+    font-size: 0.9rem;
+    font-weight: 800;
+    transition: background 180ms ease;
+  }
+
+  .desktop-nav a.is-active,
+  .desktop-nav a:hover {
+    background: rgba(82, 221, 207, 0.22);
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .section {
+    padding-block: 6rem;
+  }
+
+  .hero {
+    min-height: 92svh;
+    align-items: center;
+    padding-bottom: 5rem;
+  }
+}

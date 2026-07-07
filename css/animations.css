@@ -1,0 +1,77 @@
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Deplace lentement la grande nappe de vague pour donner un mouvement de houle continu. */
+@keyframes wave-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-18rem, 0, 0);
+  }
+}
+
+/* Fait monter et descendre legerement la vague avant, comme une eau qui respire. */
+@keyframes wave-bob {
+  0%,
+  100% {
+    transform: translate3d(0, 0.25rem, 0);
+  }
+  50% {
+    transform: translate3d(-9rem, -0.25rem, 0);
+  }
+}
+
+/* Decale la couche intermediaire dans l'autre tempo pour eviter l'effet mecanique. */
+@keyframes wave-swell {
+  from {
+    transform: translate3d(-9rem, 0.2rem, 0);
+  }
+  to {
+    transform: translate3d(9rem, -0.15rem, 0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(17, 169, 189, 0.28);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(17, 169, 189, 0);
+  }
+}
+
+.reveal,
+.timeline__item,
+.card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.reveal.is-visible,
+.timeline__item.is-visible,
+.card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Respecte les personnes sensibles au mouvement en stoppant les animations longues. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}

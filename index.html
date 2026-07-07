@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11a9bd">
+    <meta name="description" content="Application mobile pour organiser une journée entre amis au bord de l'eau.">
+    <title>Journée entre amis</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header" aria-label="Navigation principale">
+      <a class="brand" href="#hero" aria-label="Retour a l'accueil">
+        <span class="brand__mark" aria-hidden="true">~</span>
+        <span>Journée eau</span>
+      </a>
+      <nav class="desktop-nav" id="desktop-nav" aria-label="Sections"></nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section" id="hero" aria-labelledby="hero-title">
+        <div class="hero__media" aria-hidden="true"></div>
+        <div class="hero__content reveal">
+          <p class="eyebrow" id="trip-date"></p>
+          <h1 id="hero-title">Journée Baignade</h1>
+          <p class="hero__intro" id="hero-intro"></p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#programme">Voir le programme</a>
+            <a class="button button--ghost" href="#courses">Voir les courses</a>
+          </div>
+          <div class="countdown glass-panel" id="countdown" aria-live="polite"></div>
+        </div>
+        <!-- Decoration animee: les couches internes creent une vague plus organique en bas du hero. -->
+        <div class="wave" aria-hidden="true">
+          <span class="wave__surface"></span>
+        </div>
+      </section>
+
+      <section class="section section--raised" id="programme" aria-labelledby="programme-title">
+        <div class="section__head reveal">
+          <p class="eyebrow">Planning</p>
+          <h2 id="programme-title">Programme de la journée</h2>
+        </div>
+        <div class="meal-switch reveal" id="meal-switch"></div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="section" id="participants" aria-labelledby="participants-title">
+        <div class="section__head reveal">
+          <p class="eyebrow">Equipe</p>
+          <h2 id="participants-title">Participants</h2>
+        </div>
+        <div class="participant-grid" id="participant-grid"></div>
+      </section>
+
+      <section class="section section--soft" id="lieu" aria-labelledby="lieu-title">
+        <div class="section__head reveal">
+          <p class="eyebrow">Destination</p>
+          <h2 id="lieu-title">Lieu</h2>
+        </div>
+        <div class="location-card reveal" id="location-card"></div>
+      </section>
+
+      <section class="section" id="courses" aria-labelledby="courses-title">
+        <div class="section__head reveal">
+          <p class="eyebrow">Pique-nique</p>
+          <h2 id="courses-title">Courses</h2>
+        </div>
+        <div class="checklist" id="shopping-list"></div>
+      </section>
+
+      <section class="section section--soft" id="memo" aria-labelledby="memo-title">
+        <div class="section__head reveal">
+          <p class="eyebrow">Mémo</p>
+          <h2 id="memo-title">À ne pas oublier</h2>
+        </div>
+        <div class="checklist" id="remember-list"></div>
+      </section>
+
+      <section class="section" id="playlist" aria-labelledby="playlist-title">
+        <div class="section__head reveal">
+          <p class="eyebrow">Ambiance</p>
+          <h2 id="playlist-title">Playlist</h2>
+        </div>
+        <div class="playlist-card reveal" id="playlist-card"></div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile"></nav>
+
+    <script defer src="js/config.js"></script>
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/storage.js"></script>
+    <script defer src="js/animations.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/app.js"></script>
+  </body>
+</html>

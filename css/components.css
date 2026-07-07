@@ -1,0 +1,521 @@
+.eyebrow {
+  color: var(--color-sunset);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.9rem 1.2rem;
+  font-weight: 900;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button--primary {
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-lagoon-500), var(--color-turquoise));
+  box-shadow: 0 14px 30px rgba(17, 169, 189, 0.3);
+}
+
+.button--ghost {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(14px);
+}
+
+.glass-panel,
+.card,
+.location-card,
+.weather-card,
+.playlist-card,
+.gallery-placeholder,
+.meal-switch {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(18px);
+}
+
+.countdown {
+  display: inline-grid;
+  gap: 0.55rem;
+  margin-top: 1.6rem;
+  border-radius: 22px;
+  padding: 1rem;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.countdown div {
+  display: grid;
+  grid-template-columns: repeat(4, auto auto);
+  align-items: end;
+  gap: 0.15rem 0.35rem;
+}
+
+.countdown strong {
+  font-size: clamp(1.35rem, 7vw, 2.2rem);
+  line-height: 1;
+}
+
+.countdown small,
+.countdown__label {
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 800;
+}
+
+/* Conteneur global des vagues: il reste colle au bas du hero et ne capte aucun clic. */
+.wave {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: clamp(5rem, 13vw, 8rem);
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, transparent 0 58%, #fff 58% 100%);
+}
+
+/* Couche arriere: grande vague lente qui assure la continuite avec le fond blanc. */
+.wave::before {
+  position: absolute;
+  right: -18rem;
+  bottom: 0;
+  left: -18rem;
+  height: 100%;
+  content: "";
+  background:
+    url("data:image/svg+xml,%3Csvg width='360' height='96' viewBox='0 0 360 96' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 44C38 20 76 20 120 44C164 68 202 68 240 44C278 20 322 20 360 44V96H0Z' fill='%23ffffff'/%3E%3C/svg%3E") 0 100% / 22.5rem 6rem repeat-x;
+  animation: wave-drift 18s linear infinite;
+  opacity: 0.95;
+}
+
+/* La couche proche a des creux plus marques et bouge avec un leger tangage vertical. */
+.wave::after {
+  position: absolute;
+  right: -18rem;
+  bottom: -0.15rem;
+  left: -18rem;
+  height: 100%;
+  content: "";
+  background:
+    url("data:image/svg+xml,%3Csvg width='420' height='108' viewBox='0 0 420 108' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 48C44 76 90 76 140 48C190 20 230 20 280 48C330 76 376 76 420 48V108H0Z' fill='%23ffffff'/%3E%3C/svg%3E") 0 100% / 26.25rem 6.75rem repeat-x;
+  animation: wave-bob 11s ease-in-out infinite;
+}
+
+/* Cette nappe translucide casse la regularite et donne de la profondeur a la houle. */
+.wave__surface {
+  position: absolute;
+  right: -18rem;
+  bottom: 0.35rem;
+  left: -18rem;
+  height: 72%;
+  background:
+    url("data:image/svg+xml,%3Csvg width='300' height='78' viewBox='0 0 300 78' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 38C34 18 60 18 96 38C132 58 168 58 204 38C240 18 266 18 300 38V78H0Z' fill='%23ffffff'/%3E%3C/svg%3E") 0 100% / 18.75rem 4.875rem repeat-x;
+  animation: wave-swell 14s ease-in-out infinite alternate;
+  opacity: 0.54;
+}
+
+.meal-switch {
+  max-width: 58rem;
+  margin: 0 auto 1.5rem;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.segmented-control {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.segmented-control label {
+  cursor: pointer;
+}
+
+.segmented-control input {
+  position: absolute;
+  opacity: 0;
+}
+
+.segmented-control span {
+  display: grid;
+  gap: 0.25rem;
+  border: 1px solid rgba(8, 116, 138, 0.14);
+  border-radius: 18px;
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.7);
+  transition: border 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.segmented-control input:checked + span {
+  border-color: rgba(17, 169, 189, 0.75);
+  background: rgba(82, 221, 207, 0.2);
+  animation: pulse-soft 900ms ease;
+}
+
+.segmented-control small {
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  max-width: 58rem;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.timeline::before {
+  position: absolute;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  left: 1.35rem;
+  width: 2px;
+  content: "";
+  background: linear-gradient(var(--color-lagoon-500), var(--color-sunset));
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.8rem 1fr;
+  gap: 0.85rem;
+}
+
+.timeline__marker {
+  z-index: 1;
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-lagoon-500), var(--color-turquoise));
+  box-shadow: 0 10px 26px rgba(17, 169, 189, 0.22);
+}
+
+.timeline__marker svg,
+.card__icon svg,
+.weather-card svg,
+.map-placeholder svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.timeline__content,
+.card,
+.location-card,
+.weather-card,
+.playlist-card,
+.gallery-placeholder {
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.timeline__content {
+  background: var(--color-surface-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.timeline time {
+  color: var(--color-lagoon-700);
+  font-weight: 900;
+}
+
+.timeline h3,
+.card h3,
+.location-card h3,
+.weather-card h3,
+.playlist-card h3 {
+  margin-top: 0.15rem;
+  font-size: 1.15rem;
+}
+
+.timeline p,
+.card p,
+.location-card p,
+.playlist-card p,
+.weather-card p {
+  margin-top: 0.3rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.participant-grid,
+.car-grid,
+.bring-grid {
+  display: grid;
+  max-width: 72rem;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.participant-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.avatar {
+  display: grid;
+  flex: 0 0 3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: 18px;
+  color: var(--color-white);
+  font-weight: 900;
+  box-shadow: inset 0 -14px 24px rgba(0, 0, 0, 0.1);
+}
+
+.avatar--lagoon { background: var(--color-lagoon-500); }
+.avatar--coral { background: var(--color-coral); }
+.avatar--sand { background: #d3a55f; }
+.avatar--sunset { background: var(--color-sunset); }
+.avatar--mint { background: #2aa878; }
+.avatar--blue { background: #4e8de8; }
+
+.card__icon {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: 16px;
+  color: var(--color-lagoon-900);
+  background: rgba(82, 221, 207, 0.22);
+}
+
+.car-card dl,
+.stats {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+}
+
+.car-card div,
+.stats div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(8, 116, 138, 0.12);
+  padding-top: 0.65rem;
+}
+
+dt {
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+dd {
+  margin: 0;
+  font-weight: 900;
+  text-align: right;
+}
+
+.location-card,
+.weather-card,
+.playlist-card,
+.gallery-placeholder {
+  display: grid;
+  max-width: 58rem;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.location-card .button {
+  width: 100%;
+}
+
+.location-card__main,
+.weather-card__hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.map-embed,
+.spotify-embed {
+  width: 100%;
+  border: 0;
+  border-radius: 22px;
+}
+
+.map-embed {
+  min-height: 16rem;
+}
+
+.spotify-embed {
+  min-height: 22rem;
+}
+
+.weather-card__hero span {
+  display: grid;
+  width: 4.5rem;
+  height: 4.5rem;
+  place-items: center;
+  border-radius: 24px;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-sunset), #ffd36a);
+}
+
+.weather-card__hero svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.weather-card__hero strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 2rem;
+}
+
+.weather-card ul {
+  display: grid;
+  gap: 0.6rem;
+  list-style: none;
+}
+
+.weather-card li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.85rem;
+}
+
+.weather-card li span {
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.checklist {
+  display: grid;
+  max-width: 58rem;
+  margin: 0 auto;
+  gap: 0.7rem;
+}
+
+.check-item {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 3.7rem;
+  cursor: pointer;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  padding: 0.65rem 0.85rem;
+  box-shadow: var(--shadow-card);
+}
+
+.check-item input {
+  position: absolute;
+  opacity: 0;
+}
+
+.check-item__box {
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border: 2px solid rgba(8, 116, 138, 0.2);
+  border-radius: 14px;
+  color: transparent;
+  transition: background 160ms ease, color 160ms ease, border 160ms ease;
+}
+
+.check-item__box svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.check-item input:checked + .check-item__box {
+  border-color: var(--color-lagoon-500);
+  color: var(--color-white);
+  background: var(--color-lagoon-500);
+}
+
+.bring-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 18px;
+  background: var(--color-white);
+  padding: 1rem;
+  box-shadow: var(--shadow-card);
+}
+
+.bring-item span {
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.bring-item strong {
+  text-align: right;
+}
+
+.playlist-card {
+  align-items: start;
+}
+
+.playlist-card .button {
+  color: var(--color-lagoon-900);
+  background: rgba(82, 221, 207, 0.18);
+}
+
+.gallery-placeholder {
+  min-height: 12rem;
+  place-items: center;
+  text-align: center;
+}
+
+.gallery-placeholder .card__icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 22px;
+}
+
+@media (min-width: 640px) {
+  .segmented-control,
+  .participant-grid,
+  .car-grid,
+  .bring-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .participant-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .car-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
