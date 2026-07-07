@@ -16,7 +16,8 @@ const tripConfig = {
   },
   participants: [
     { name: "Gaël", avatarColor: "lagoon" },
-    { name: "Manon", avatarColor: "coral" },
+    { name: "David", avatarColor: "lagoon" },
+    // { name: "Manon", avatarColor: "coral" },
     { name: "Cécilia", avatarColor: "mint" },
     { name: "Fanny", avatarColor: "sand" },
     { name: "Pierre", avatarColor: "sunset" },
