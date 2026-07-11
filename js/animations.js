@@ -1,8 +1,10 @@
 const initRevealAnimations = () => {
   const elements = document.querySelectorAll(".reveal, .timeline__item, .card");
+  const sections = document.querySelectorAll(".section:not(.hero)");
 
   if (!("IntersectionObserver" in window)) {
     elements.forEach((element) => element.classList.add("is-visible"));
+    sections.forEach((section) => section.classList.add("is-section-visible"));
     return;
   }
 
@@ -19,6 +21,20 @@ const initRevealAnimations = () => {
   );
 
   elements.forEach((element) => observer.observe(element));
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-section-visible");
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.18 }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
 };
 
 const initActiveNavigation = () => {

@@ -49,19 +49,38 @@
   }
 }
 
+@keyframes divider-flow {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-26.25rem, 0, 0);
+  }
+}
+
+@keyframes water-glint {
+  0%,
+  100% {
+    background-position: 0 0, 0 0;
+  }
+  50% {
+    background-position: 3rem 0, 1.5rem 0.8rem;
+  }
+}
+
 .reveal,
 .timeline__item,
 .card {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 520ms ease, transform 520ms ease;
+  transform: translateY(22px) scale(0.985);
+  transition: opacity 620ms ease, transform 620ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal.is-visible,
 .timeline__item.is-visible,
 .card.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
