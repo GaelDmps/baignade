@@ -1,0 +1,157 @@
+OU TROUVER LES INFOS DU SITE
+
+Le contenu principal du site se trouve dans :
+js/config.js
+
+Dans ce fichier, tu peux modifier presque toutes les infos visibles sur le site.
+
+1. Titre, texte d'intro et date
+
+Dans js/config.js, au debut du fichier :
+
+- title : titre general du site
+- intro : texte d'introduction affiche en haut de la page
+- departureDate : date utilisee pour le compte a rebours
+- dateLabel : texte orange affiche en haut du site
+
+Exemple :
+dateLabel: "Dimanche 19 juillet a 10:30"
+
+
+2. Scenarios du programme
+
+Toujours dans js/config.js :
+
+- mealScenarios : les deux choix affiches au-dessus du programme
+- mealScenarioDefault : le scenario selectionne par defaut
+
+Les textes "Sans match" et "Avec finale" se changent ici.
+
+
+3. Participants
+
+Dans js/config.js, partie :
+participants
+
+Chaque participant est une ligne avec :
+
+- name : prenom affiche
+- avatarColor : couleur du rond avec l'initiale
+
+Exemple :
+{ name: "Manon", avatarColor: "violet" }
+
+Les couleurs disponibles sont definies dans :
+css/components.css
+
+Chercher les lignes qui commencent par :
+.avatar--
+
+
+4. Lieu
+
+Dans js/config.js, partie :
+location
+
+Tu peux modifier :
+
+- name : nom du lieu
+- address : description du lieu
+- mapsUrl : lien Google Maps
+- coordinates : coordonnees utilisees pour la carte
+
+
+5. Programme de la journee
+
+Dans js/config.js, partie :
+schedule
+
+Chaque etape contient :
+
+- time : heure affichee
+- title : titre de l'etape
+- detail : description
+- icon : icone utilisee
+
+Pour afficher une etape seulement dans un scenario :
+
+- dinnerOnly: true affiche l'etape seulement dans le scenario avec finale
+- picnicOnly: true affiche l'etape seulement dans le scenario sans match
+
+Sans dinnerOnly ou picnicOnly, l'etape apparait dans les deux scenarios.
+
+
+6. Courses
+
+Dans js/config.js, partie :
+shoppingList
+
+C'est la liste affichee dans la section "Courses".
+
+Actuellement :
+"Chacun gere son pique-nique pour le midi"
+
+
+7. Memo / A ne pas oublier
+
+Dans js/config.js, partie :
+rememberList
+
+C'est la liste des affaires a ne pas oublier.
+
+
+8. Playlist
+
+Dans js/config.js, partie :
+playlist
+
+Tu peux modifier :
+
+- title : titre de la playlist
+- description : petit texte sous le titre
+- ctaLabel : texte du bouton
+- spotifyUrl : lien Spotify
+- spotifyEmbedUrl : lien d'integration Spotify
+
+
+9. Navigation
+
+Dans js/config.js, partie :
+navigation
+
+C'est la barre de navigation en bas sur mobile.
+
+La navigation desktop est dans :
+js/ui.js
+
+
+10. Mise en page et couleurs
+
+Les fichiers CSS sont dans le dossier :
+css/
+
+Les principaux fichiers sont :
+
+- css/style.css : style global de la page
+- css/components.css : cartes, boutons, participants, timeline, listes
+- css/layout.css : placement des sections et du header
+- css/variables.css : couleurs et variables principales
+
+
+11. Page principale
+
+La structure HTML principale est dans :
+index.html
+
+En general, il n'y a pas besoin d'y toucher pour modifier les infos.
+La plupart des textes viennent de js/config.js.
+
+
+12. Lancer le site
+
+Le serveur local est dans :
+server.js
+
+Adresse du site quand il est lance :
+http://127.0.0.1:8010/
+

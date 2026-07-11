@@ -2,7 +2,7 @@ let currentMealScenario;
 
 const initStaticContent = (config) => {
   document.title = config.title;
-  document.getElementById("trip-date").textContent = `${config.dateLabel} - ${formatDate(config.departureDate)}`;
+  document.getElementById("trip-date").textContent = config.dateLabel;
   document.getElementById("hero-intro").textContent = config.intro;
 };
 

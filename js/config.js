@@ -1,23 +1,23 @@
 const tripConfig = {
   title: "Journée entre amis",
-  intro: "RDV à Baume-les-Dames, courses, puis direction le pont pour sauter dans l'eau, pique-nique et aprem baignade entre amis.",
-  departureDate: "2026-07-18T10:00:00+02:00",
-  dateLabel: "Dimanche 19 Juillet",
+  intro: "RDV à la gare de Baume-les-Dames avec les repas du midi déjà prêts, direction le pont pour baignade, pique-nique, jeux et Burger King le soir.",
+  departureDate: "2026-07-19T10:30:00+02:00",
+  dateLabel: "Dimanche 19 juillet à 10:30",
   mealScenarioDefault: "picnic",
   mealScenarios: {
     picnic: {
-      label: "Retour l'après-midi",
-      description: "On rentre en fin d'après-midi après la baignade et les jeux."
+      label: "Sans match",
+      description: "On termine après Burger King, chacun rentre chez soi."
     },
     dinner: {
-      label: "Repas du soir ensemble",
-      description: "On prolonge la journée avec un repas tranquille tous ensemble."
+      label: "Avec finale",
+      description: "Après Burger King, on trouve un endroit pour regarder la finale."
     }
   },
   participants: [
+    { name: "Manon", avatarColor: "violet" },
     { name: "Gaël", avatarColor: "lagoon" },
     { name: "David", avatarColor: "coral" },
-    // { name: "Manon", avatarColor: "coral" },
     { name: "Cécilia", avatarColor: "mint" },
     { name: "Fanny", avatarColor: "sand" },
     { name: "Pierre", avatarColor: "sunset" },
@@ -33,25 +33,19 @@ const tripConfig = {
     }
   },
   schedule: [
-    { time: "10:00", title: "Rendez-vous", detail: "Gare de Baume-les-Dames.", icon: "pin" },
-    { time: "10:30", title: "Courses", detail: "Achat du pique-nique et des boissons.", icon: "basket" },
-    { time: "11:15", title: "Direction le pont", detail: "On part vers le spot au bord de l'eau.", icon: "car" },
-    { time: "12:30", title: "Pique-nique", detail: "Repas sur place.", icon: "picnic" },
-    { time: "14:00", title: "Baignade & jeux", detail: "Sauts depuis le pont, baignade et jeux l'après-midi.", icon: "wave" },
-    { time: "19:00", title: "Repas du soir", detail: "Repas tranquille tous ensemble", icon: "plate", dinnerOnly: true },
-    { time: "21:00", title: "Soirée Match", detail: "On regarde la finale de la Coupe du Monde", icon: "plate", dinnerOnly: true },
-    { time: "23:00-00:00", title: "Retour", detail: "Retour après le dîner et le match.", icon: "moon", dinnerOnly: true },
-    { time: "18:00", title: "Retour", detail: "Retour en fin d'après-midi.", icon: "moon", picnicOnly: true }
+    { time: "10:30", title: "Rendez-vous", detail: "Gare de Baume-les-Dames, avec les repas du midi préparés par chacun au préalable.", icon: "pin" },
+    { time: "10:45", title: "Direction le pont", detail: "On part vers le spot pour arriver là-bas vers 11h15.", icon: "car" },
+    { time: "11:15", title: "Arrivée au pont", detail: "Installation au bord de l'eau et premier coup de baignade.", icon: "wave" },
+    { time: "12:30", title: "Pique-nique", detail: "Repas du midi sur place avec le pique-nique de chacun.", icon: "picnic" },
+    { time: "14:00", title: "Baignade & jeux", detail: "Re-baignade, jeux de société et après-midi tranquille pour bien profiter.", icon: "wave" },
+    { time: "18:30-19:00", title: "Retour à Baume-les-Dames", detail: "On repart du pont en direction de Baume-les-Dames.", icon: "car" },
+    { time: "19:30", title: "Burger King", detail: "Repas du soir tous ensemble à Burger King.", icon: "plate" },
+    { time: "Après manger", title: "Retour", detail: "Après Burger King, chacun rentre chez soi.", icon: "moon", picnicOnly: true },
+    { time: "21:00", title: "Finale de la Coupe du Monde", detail: "On trouve un endroit pour regarder la finale à partir de 21h.", icon: "plate", dinnerOnly: true },
+    { time: "Après le match", title: "Retour", detail: "Après la finale, chacun rentre chez soi.", icon: "moon", dinnerOnly: true }
   ],
   shoppingList: [
-    "Pain",
-    "Boissons",
-    "Chips",
-    "Charcuterie",
-    "Fromage",
-    "Fruits",
-    "Desserts",
-    "Glaçons"
+    "Chacun gère son pique-nique pour le midi"
   ],
   rememberList: [
     "Serviette",

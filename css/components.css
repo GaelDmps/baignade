@@ -293,6 +293,7 @@
 .avatar--sunset { background: var(--color-sunset); }
 .avatar--mint { background: #2aa878; }
 .avatar--blue { background: #4e8de8; }
+.avatar--violet { background: #8b5cf6; }
 
 .card__icon {
   display: grid;
