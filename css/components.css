@@ -294,6 +294,8 @@
 .avatar--mint { background: #2aa878; }
 .avatar--blue { background: #4e8de8; }
 .avatar--violet { background: #8b5cf6; }
+.avatar--forest { background: var(--color-forest); }
+.avatar--red { background: var(--color-red); }
 
 .card__icon {
   display: grid;

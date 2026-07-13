@@ -21,7 +21,9 @@ const tripConfig = {
     { name: "Cécilia", avatarColor: "mint" },
     { name: "Fanny", avatarColor: "sand" },
     { name: "Pierre", avatarColor: "sunset" },
-    { name: "Simon", avatarColor: "blue" }
+    { name: "Simon", avatarColor: "blue" },
+    { name: "Néo", avatarColor: "forest" },
+    { name: "Luca", avatarColor: "red" },
   ],
   location: {
     name: "Spot au pont",
